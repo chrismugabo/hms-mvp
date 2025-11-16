@@ -1,4 +1,4 @@
-//---------------------------------------------
+ //---------------------------------------------
 // Utility functions (localStorage helpers)
 //---------------------------------------------
 function saveToStorage(key, value) {
@@ -13,9 +13,12 @@ function saveToStorage(key, value) {
   
   
   //---------------------------------------------
-  // SELECT DOCTOR PAGE (index.html)
+  // Main DOMContentLoaded
   //---------------------------------------------
   document.addEventListener("DOMContentLoaded", () => {
+    //---------------------------------------------
+    // SELECT DOCTOR PAGE (index.html)
+    //---------------------------------------------
     const doctorListContainer = document.getElementById("doctor-list");
   
     if (doctorListContainer && typeof doctors !== "undefined") {
@@ -24,12 +27,18 @@ function saveToStorage(key, value) {
       doctors.forEach(doctor => {
         const card = document.createElement("div");
         card.classList.add("doctor-card");
+        card.setAttribute("role", "listitem");
+        card.setAttribute("tabindex", "0");
+        card.setAttribute(
+          "aria-label",
+          `${doctor.name}, ${doctor.specialty} at ${doctor.location}`
+        );
   
         card.innerHTML = `
           <h4>${doctor.name}</h4>
           <p>${doctor.specialty}</p>
           <p>${doctor.location}</p>
-          <button class="select-doctor-btn" data-id="${doctor.id}">
+          <button class="select-doctor-btn" data-id="${doctor.id}" aria-label="Select ${doctor.name}">
             Select
           </button>
         `;
@@ -46,7 +55,6 @@ function saveToStorage(key, value) {
         const selectedDoctor = doctors.find(d => d.id === doctorId);
   
         if (selectedDoctor) {
-  
           // Highlight selected card
           document.querySelectorAll(".doctor-card").forEach(card =>
             card.classList.remove("selected")
@@ -71,7 +79,6 @@ function saveToStorage(key, value) {
     const selectedDoctor = loadFromStorage("selectedDoctor");
   
     if (doctorInfoContainer && selectedDoctor) {
-  
       // Show selected doctor details
       doctorInfoContainer.innerHTML = `
         <h3>Doctor: ${selectedDoctor.name}</h3>
@@ -87,15 +94,22 @@ function saveToStorage(key, value) {
         const btn = document.createElement("button");
         btn.classList.add("time-btn");
         btn.textContent = time;
+        btn.setAttribute("type", "button");
+        btn.setAttribute("role", "radio");
+        btn.setAttribute("aria-checked", "false");
+        btn.setAttribute("tabindex", "0");
   
         // On click, save time + highlight selection
         btn.addEventListener("click", () => {
           saveToStorage("selectedTime", time);
   
-          document.querySelectorAll(".time-btn").forEach(b =>
-            b.classList.remove("selected-time")
-          );
+          document.querySelectorAll(".time-btn").forEach(b => {
+            b.classList.remove("selected-time");
+            b.setAttribute("aria-checked", "false");
+          });
+  
           btn.classList.add("selected-time");
+          btn.setAttribute("aria-checked", "true");
         });
   
         timeSlotsContainer.appendChild(btn);

@@ -15,22 +15,24 @@
 </header>
 
 <main>
-    <section>
-        <h2>Select Date & Time</h2>
+    <section aria-labelledby="datetime-heading">
+        <h2 id="datetime-heading">Select Date &amp; Time</h2>
 
-        <div id="selected-doctor">
-            <!-- Injected by JS -->
+        <div id="selected-doctor" aria-label="Selected doctor details">
+            <!-- Injected by JavaScript -->
         </div>
 
         <label for="date">Choose a date:</label>
-        <input type="date" id="date">
+        <input type="date" id="date" aria-required="true">
 
-        <h3>Choose a time:</h3>
-        <div id="time-slots">
-            <!-- Time buttons injected by JS -->
+        <h3 id="time-label">Choose a time:</h3>
+        <div id="time-slots" role="radiogroup" aria-labelledby="time-label">
+            <!-- Time buttons injected by JavaScript -->
         </div>
 
-        <button id="confirm-btn">Confirm Appointment</button>
+        <button id="confirm-btn" aria-label="Confirm selected appointment date and time">
+            Confirm Appointment
+        </button>
     </section>
 </main>
 

@@ -1,4 +1,4 @@
-/* ---------- GLOBAL ---------- */
+ /* ---------- GLOBAL ---------- */
 body {
     margin: 0;
     padding: 0;
@@ -30,7 +30,6 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-
 /* ---------- DOCTOR CARDS ---------- */
 #doctor-list {
     margin-top: 20px;
@@ -55,6 +54,11 @@ h1, h2, h3 {
     font-size: 18px;
 }
 
+/* Highlight selected doctor */
+.doctor-card.selected {
+    outline: 2px solid #1976d2;
+    box-shadow: 0 0 10px rgba(25, 118, 210, 0.5);
+}
 
 /* ---------- BUTTONS ---------- */
 button {
@@ -73,7 +77,6 @@ button:hover {
     background: #0f5cab;
 }
 
-
 /* ---------- TIME BUTTONS ---------- */
 .time-btn {
     margin: 6px;
@@ -91,6 +94,29 @@ button:hover {
     transform: scale(1.03);
 }
 
+.time-btn.selected-time {
+    background: #1976d2;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ---------- CONFIRMATION ANIMATION ---------- */
+.confirm-fade {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- FOCUS STYLES (Accessibility) ---------- */
+button:focus,
+.time-btn:focus,
+.doctor-card:focus {
+    outline: 3px solid #ffb300;
+    outline-offset: 2px;
+}
 
 /* ---------- FOOTER ---------- */
 footer {
@@ -102,7 +128,6 @@ footer {
 }
 
 /* ---------- RESPONSIVE DESIGN ---------- */
-
 /* Tablet */
 @media (max-width: 900px) {
     main {

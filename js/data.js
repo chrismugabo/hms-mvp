@@ -1,4 +1,4 @@
-// Dummy doctor data for the MVP
+ // Dummy doctor data for the MVP
 
 const doctors = [
     {
