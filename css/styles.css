@@ -1,0 +1,152 @@
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #1a1a1a;
+}
+
+header {
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1, h2, h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+
+
+/* ---------- DOCTOR CARDS ---------- */
+#doctor-list {
+    margin-top: 20px;
+}
+
+.doctor-card {
+    background: #ffffff;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    border: 1px solid #e0e6ef;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.doctor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+.doctor-card h4 {
+    margin: 0 0 5px;
+    font-size: 18px;
+}
+
+
+/* ---------- BUTTONS ---------- */
+button {
+    background: #1976d2;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 12px;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background: #0f5cab;
+}
+
+
+/* ---------- TIME BUTTONS ---------- */
+.time-btn {
+    margin: 6px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #e8eef7;
+    color: #1a1a1a;
+    border: 1px solid #cfd8e3;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.time-btn:hover {
+    background: #dbe5f3;
+    transform: scale(1.03);
+}
+
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+    main {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    header {
+        padding: 20px;
+    }
+
+    .doctor-card {
+        padding: 14px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    main {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .doctor-card h4 {
+        font-size: 16px;
+    }
+
+    button, .time-btn {
+        width: 100%;
+        margin: 8px 0;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    input[type="date"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+}
